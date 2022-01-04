@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommonResult<T> {
+    /** success:0;failure:1 */
     private Integer code;
     private String message;
     private T data;
