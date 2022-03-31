@@ -11,7 +11,7 @@ spring:
       config:
         server-addr: localhost:8848
         file-extension: yaml
-        group: TEST_GROUP
+        group: DEFAULT_GROUP
 
 # ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
-# nacos-config-client-dev.yaml
+# eg（nacos-config-client项目名称、dev环境配置、yaml文件格式）：nacos-config-client-dev.yaml
