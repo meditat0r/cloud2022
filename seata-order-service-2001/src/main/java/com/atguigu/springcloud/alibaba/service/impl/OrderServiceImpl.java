@@ -28,8 +28,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Resource
     private AccountService accountService;
 
+    /**
+     * @GlobalTransactional 取唯一性name
+     * @param order
+     * @return
+     */
     @Override
-    @GlobalTransactional
+    @GlobalTransactional(name = "txl-create-order", rollbackFor = Exception.class)
     public CommonResult create(Order order) {
         log.info("----->开始新建订单");
         this.save(order);
