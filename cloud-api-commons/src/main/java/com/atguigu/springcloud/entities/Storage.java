@@ -8,24 +8,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.math.BigDecimal;
-
 /**
  * @Author meditat0r
- * @create 2022/1/26 15:04
+ * @create 2022/4/3 12:17
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-@TableName(value = "t_order")
-public class Order {
+@TableName(value = "t_storage")
+public class Storage {
     @TableId(type = IdType.AUTO)
     private Long id;
-    private Long userId;
     private Long productId;
-    private Integer count;
-    private BigDecimal money;
-    /** 0:创建中 1:已完结 */
-    private Integer state;
+    private Integer total;
+    /**已用库存*/
+    private Integer used;
+    /**剩余库存*/
+    private Integer residue;
 }

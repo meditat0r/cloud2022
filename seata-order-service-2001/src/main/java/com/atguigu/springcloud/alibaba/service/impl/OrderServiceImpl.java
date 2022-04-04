@@ -7,6 +7,7 @@ import com.atguigu.springcloud.alibaba.service.StorageService;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Order;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     private AccountService accountService;
 
     @Override
+    @GlobalTransactional
     public CommonResult create(Order order) {
         log.info("----->开始新建订单");
         this.save(order);
@@ -37,7 +39,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         accountService.decrease(order.getUserId(), order.getMoney());
 
         log.info("----->修改订单状态");
-        this.save(order.setStatus(1));
+        this.updateById(order.setState(1));
         return null;
     }
 }

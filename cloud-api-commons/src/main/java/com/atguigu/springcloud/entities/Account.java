@@ -12,20 +12,17 @@ import java.math.BigDecimal;
 
 /**
  * @Author meditat0r
- * @create 2022/1/26 15:04
+ * @create 2022/4/3 12:18
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-@TableName(value = "t_order")
-public class Order {
+@TableName(value = "t_account")
+public class Account {
     @TableId(type = IdType.AUTO)
-    private Long id;
     private Long userId;
-    private Long productId;
-    private Integer count;
-    private BigDecimal money;
-    /** 0:创建中 1:已完结 */
-    private Integer state;
+    private BigDecimal total;
+    private BigDecimal used;
+    private BigDecimal residue;
 }

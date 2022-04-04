@@ -12,15 +12,15 @@ import org.springframework.context.annotation.Import;
 
 /**
  * @Author meditat0r
- * @create 2022/1/26 15:03
+ * @create 2022/4/3 12:23
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, SeataRestTemplateAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableAutoDataSourceProxy
 @EnableFeignClients
-@Import(DataSourceProxyConfig.class) //DataSourceConfig是上面配置文件的
-public class SeataOrderMain2001 {
+@Import(DataSourceProxyConfig.class)
+public class SeataStorageMain2002 {
     public static void main(String[] args) {
-        SpringApplication.run(SeataOrderMain2001.class, args);
+        SpringApplication.run(SeataStorageMain2002.class, args);
     }
 }
